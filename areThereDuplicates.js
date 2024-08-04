@@ -1,14 +1,16 @@
 function areThereDuplicates(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      for (let j = i + 1; j < arr.length; j++) {
-        if (arr[i] === arr[j]) {
-          return true;
-        }
+    const frequencyCounter = {};
+  
+    for (let num of arr) {
+      frequencyCounter[num] = (frequencyCounter[num] || 0) + 1;
+      if (frequencyCounter[num] > 1) {
+        return true;
       }
     }
+  
     return false;
   }
-
+  
+  const result = areThereDuplicates(['a','b','a']);
+  console.log(result);
  
-const result = areThereDuplicates([1,1,3])
-console.log(result)
